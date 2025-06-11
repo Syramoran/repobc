@@ -42,7 +42,7 @@ export class ServiciosRefrigeracionComponent {
 
   comprar(servicioId: string) {
 
-    this.http.post<{ id: string }>('http://localhost:4000/crear-preferencia', { servicio: servicioId })
+    this.http.post<{ id: string }>('https://repobackbc.onrender.com/crear-preferencia', { servicio: servicioId })
       .subscribe({
         next: (data) => {
           if (data?.id) {
