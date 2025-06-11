@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "dist/bajo-cero",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
