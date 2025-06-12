@@ -41,22 +41,41 @@ export class ServiciosRefrigeracionComponent {
   ]
 
   comprar(servicioId: string) {
+  // Mostrar estado de carga
+  let loading = true;
 
-    this.http.post<{ id: string }>('https://repobackbc.onrender.com/crear-preferencia', { servicio: servicioId })
-      .subscribe({
-        next: (data) => {
-          if (data?.id) {
-            this.renderWalletBrick(data.id);
-          } else {
-            alert('No se pudo generar el pago');
-          }
-        },
-        error: (err) => {
-          console.error('Error al crear preferencia:', err);
-          alert(err.error?.message || 'Error al procesar el pago. Por favor intente más tarde.');
+  this.http.post<{ id: string }>(
+    'https://repobackbc.onrender.com/crear-preferencia', 
+    { servicio: servicioId }
+  ).subscribe({
+    next: (data) => {
+      if (data?.id) {
+        console.log('Preferencia creada:', data);
+        this.renderWalletBrick(data.id);
+      } else {
+        console.error('Respuesta inesperada:', data);
+        alert('No se recibió un ID de preferencia válido');
+      }
+    },
+    error: (err) => {
+      console.error('Error completo:', err);
+      let errorMessage = 'Error al procesar el pago';
+      
+      if (err.error?.error) {
+        errorMessage = err.error.error;
+        if (err.error.details) {
+          errorMessage += `: ${err.error.details}`;
         }
-      });
-  }
+      }
+      
+      alert(errorMessage);
+    },
+    complete: () => {
+      // Ocultar estado de carga
+      loading = false;
+    }
+  });
+}
 
   async renderWalletBrick(preferenceId: string) {
     const mp = new MercadoPago(this.publicKey);
