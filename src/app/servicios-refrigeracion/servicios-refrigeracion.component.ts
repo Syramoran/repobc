@@ -51,7 +51,7 @@ export class ServiciosRefrigeracionComponent {
     next: (data) => {
       if (data?.id) {
         console.log('Preferencia creada:', data);
-        this.renderWalletBrick(data.id);
+        window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
       } else {
         console.error('Respuesta inesperada:', data);
         alert('No se recibió un ID de preferencia válido');
