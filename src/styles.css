@@ -1,35 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-/* Reset básico */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Opcional: asegura que html y body ocupen todo el alto */
-html, body {
-  height: 100%;
-  font-family: sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Elimina estilos por defecto en listas */
-ul, ol {
-  list-style: none;
-}
-
-/* Elimina estilos por defecto en links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Asegura que las imágenes no se salgan de su contenedor */
-/* img, picture, video, canvas, svg {
-  max-width: 100%;
-  display: block;
-} */
+/* IMPORTANTE */
+/* @import 'flowbite';
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite"; */

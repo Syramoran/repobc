@@ -1,17 +1,35 @@
-<div class="container col-xxl-8 px-4 pb-0 pt-1">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 ">
-      <div class="col-10 col-sm-8 col-lg-6 ">
-        <img src="/foto-hero.jpg" class="d-block mx-lg-auto shadow-lg overflow-hidden rounded" alt="Bootstrap Themes" loading="lazy" style="height: 400px; width: 100%; object-fit: cover;" >
+<section class="w-full relative">
+    <div class="w-full bg-white flex flex-col justify-center md:flex-row">
+    
+      <div class="h-[30vh] md:w-1/2 md:h-auto w-full overflow-hidden bg-white">
+        <img src="/foto-hero.jpg" class=" w-full h-full 
+        md:max-h-[70vh]
+        lg:max-h-[80vh]
+        object-cover  
+        md:object-center object-[75%_25%] 
+        lg:object-[85%_15%]
+        mask-b-from-60% mask-b-to-90%
+        md:mask-l-from-60% md:mask-l-to-90% md:mask-b-from-100%
+        "  loading="lazy">
       </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Más de 5 años al servicio de hogares, negocios y&nbsp;obras</h1>
-        <p class="lead">Nos dedicamos a proveer servicios de reparación, instalación y mantenimiento de equipos frigoríficos y&nbsp;eléctricos.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Quiero un turno</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Contacto</button>
+      
+      <div class="py-5 px-6 flex flex-col justify-center md:w-1/2 md:px-12  overflow-hidden lg:pl-32 md:p-10 md:order-first">
+        <h1 class="py-2 text-xl md:text-2xl/9 lg:text-3xl/9 md:py-4 font-[montserrat] font-extrabold text-center md:text-start text-zinc-900">Más de 5 años al servicio de hogares, negocios y&nbsp;obras</h1>
+
+        <p class="text-center font-[montserrat] font-medium md:text-start text-zinc-800
+         text-xs md:text-sm lg:text-base
+        ">Nos dedicamos a proveer servicios de reparación, instalación y mantenimiento de equipos frigoríficos y&nbsp;eléctricos.</p>
+        <div class="py-3 flex justify-center md:justify-start">
+          <button type="button" class="text-white 
+          bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
+          
+          hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg 
+          
+          text-sm px-5 py-2.5 text-center me-2 mb-2 cursor-pointer transition-all duration-300">Quiero un turno</button>
         </div>
       </div>
-    </div>
-  </div> 
+ </div>
+</section> 
+
 
 <app-servicios-refrigeracion></app-servicios-refrigeracion>

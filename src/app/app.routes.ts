@@ -11,5 +11,5 @@ export const routes: Routes = [
     { path: 'pago-exitoso', component: PagoExitosoComponent },
     { path: 'pago-fallido', component: PagoFallidoComponent },
     { path: 'pago-pendiente', component: PagoPendienteComponent },
-    { path: '**', redirectTo: 'pago-fallido' }
+    { path: '**', redirectTo: '' }
 ];

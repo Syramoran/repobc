@@ -1,21 +1,43 @@
-<nav class="navbar bg-body-tertiary navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/bajocero.png" alt="Logo" height="50" class="d-inline-block align-text-center">
-        </a>
+<nav class="shadow-md z-10 relative bg-white md:flex md:py-2 md:px-8 md:items-center md:justify-between">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <div class="flex justify-between px-5 py-1 md:py-0 items-center">
+    <a>
+      <img src="/bajocero.png" class="h-14" alt="Logo" />
+    </a>
 
-        <div class="collapse navbar-collapse " id="navbarNav" >
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
+    <button
+      id="menu-btn"
+      class="md:hidden text-2xl p-4 text-blue-600 hover:cursor-pointer hover:text-gray-950"
+      (click)="activarHidden()"
+    >
+      ☰
+    </button>
+  </div>
 
-    </div>
+
+  <ul
+    id="menu"
+    class="hidden flex-col font-[montserrat] justify-center md:mt-0 md:flex md:flex-row"
+  >
+
+
+    <li class="p-4 flex justify-center cursor-pointer
+            bg-gray-100 
+            hover:bg-gray-200
+            md:bg-white 
+            md:hover:bg-white
+            transition-colors duration-300
+            hover:text-blue-600">
+      <a [routerLink]="'/servicios'" class="">Servicios</a>
+    </li>
+    <li class="p-4 flex justify-center cursor-pointer
+            bg-gray-100 
+            hover:bg-gray-200
+            md:bg-white 
+            md:hover:bg-white
+            transition-colors duration-300
+            hover:text-blue-600">
+      <a [routerLink]="'/servicios'" class="">Contacto</a>
+    </li>
+  </ul>
 </nav>
