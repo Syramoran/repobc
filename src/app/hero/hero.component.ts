@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ServiciosRefrigeracionComponent } from '../servicios-refrigeracion/servicios-refrigeracion.component';
 import { ElectricidadComponent } from '../electricidad/electricidad.component';
+import { ContactoComponent } from '../contacto/contacto.component';
 
 @Component({
   selector: 'app-hero',
-  imports: [ServiciosRefrigeracionComponent, ElectricidadComponent],
+  imports: [ServiciosRefrigeracionComponent, ElectricidadComponent, ContactoComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })

@@ -1,0 +1,46 @@
+<section id="contacto" class="bg-white px-12 lg:px-24 font-[montserrat] py-8">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center">
+
+    <!-- Formulario reactivo -->
+    <div>
+      <h2 class="text-2xl  font-bold text-sky-600">CONTACTO</h2>
+      <div class="h-1 w-20 bg-sky-500 my-1 mb-6"></div>
+      <div class="flex items-center gap-1 mb-4">
+        <i class="bi bi-geo-alt text-zinc-900 text-lg mr-2"></i>
+        <span> Paraná - Santa Fe - Oro Verde - San Benito y alrededores</span>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+
+        <div>
+          <label for="nombre" class="block text-sm 2xl:text-xl text-zinc-900">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" placeholder="Ingrese nombre y apellido " 
+            class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder-zinc-400 placeholder:text-sm " />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm 2xl:text-xl text-zinc-900">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Ingrese su email"
+            class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder-zinc-400 placeholder:text-sm " />
+        </div>
+
+        <div>
+          <label for="mensaje" class="block text-sm 2xl:text-xl text-zinc-900">Mensaje</label>
+          <textarea id="mensaje" rows="5" formControlName="mensaje"
+            class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid"
+          class="bg-sky-600 text-white text-sm 2xl:text-xl font-semibold px-6 py-2 rounded-lg hover:bg-sky-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          Enviar mensaje
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Imagen / ilustración -->
+    <div class="w-full h-full rounded-lg flex items-center justify-center animate__animated lazyIlustration">
+      <img src="/ilustracion.png" class="h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96">
+    </div>
+
+  </div>
+</section>

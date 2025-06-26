@@ -19,6 +19,13 @@ activarHidden() {
   }
 }
 
+scrollTo(id: string) {
+  const element = document.getElementById(id);
+  if (element) {
+    console.log('deauu')
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
     
 
 

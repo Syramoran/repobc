@@ -1,4 +1,4 @@
-<nav class="shadow-xl z-10 relative bg-white md:flex md:py-2 md:px-8 md:items-center md:justify-between">
+<nav class="shadow-xl z-30 relative bg-white md:flex md:py-2 md:px-8 md:items-center md:justify-between">
 
   <div class="flex justify-between px-5 lg:px-10 py-1 md:py-0 lg:py-1 items-center">
     <a>
@@ -30,7 +30,7 @@
             text-gray-800
             hover:text-blue-600
             hover:font-medium">
-      <a [routerLink]="'/servicios'" class=" lg:text-xl">Servicios</a>
+      <a (click)="scrollTo('servicios')" class=" lg:text-xl">Servicios</a>
     </li>
     <li class="p-4 flex justify-center cursor-pointer
             bg-gray-100 
