@@ -11,10 +11,18 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'web-app';
 
-  ngOnInit(): void {
-    initFlowbite();
-  }
+ngAfterViewInit(): void {
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader')
+    loader?.classList.add('opacity-0')
+    if(loader){
+    setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);}
+  });
+}
+
 }

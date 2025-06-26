@@ -1,12 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-@tailwind base;
-@tailwind components;
+@import 'animate.css';
+
 @tailwind utilities;
-
-
-/* IMPORTANTE */
-/* @import 'flowbite';
-@import "flowbite/src/themes/default";
-@plugin "flowbite/plugin";
-@source "../node_modules/flowbite"; */

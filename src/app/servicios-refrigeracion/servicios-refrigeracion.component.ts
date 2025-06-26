@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -41,41 +41,41 @@ export class ServiciosRefrigeracionComponent {
   ]
 
   comprar(servicioId: string) {
-  // Mostrar estado de carga
-  let loading = true;
+    // Mostrar estado de carga
+    let loading = true;
 
-  this.http.post<{ id: string }>(
-    'https://repobackbc.onrender.com/crear-preferencia', 
-    { servicio: servicioId }
-  ).subscribe({
-    next: (data) => {
-      if (data?.id) {
-        console.log('Preferencia creada:', data);
-        window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
-      } else {
-        console.error('Respuesta inesperada:', data);
-        alert('No se recibió un ID de preferencia válido');
-      }
-    },
-    error: (err) => {
-      console.error('Error completo:', err);
-      let errorMessage = 'Error al procesar el pago';
-      
-      if (err.error?.error) {
-        errorMessage = err.error.error;
-        if (err.error.details) {
-          errorMessage += `: ${err.error.details}`;
+    this.http.post<{ id: string }>(
+      'https://repobackbc.onrender.com/crear-preferencia',
+      { servicio: servicioId }
+    ).subscribe({
+      next: (data) => {
+        if (data?.id) {
+          console.log('Preferencia creada:', data);
+          window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
+        } else {
+          console.error('Respuesta inesperada:', data);
+          alert('No se recibió un ID de preferencia válido');
         }
+      },
+      error: (err) => {
+        console.error('Error completo:', err);
+        let errorMessage = 'Error al procesar el pago';
+
+        if (err.error?.error) {
+          errorMessage = err.error.error;
+          if (err.error.details) {
+            errorMessage += `: ${err.error.details}`;
+          }
+        }
+
+        alert(errorMessage);
+      },
+      complete: () => {
+        // Ocultar estado de carga
+        loading = false;
       }
-      
-      alert(errorMessage);
-    },
-    complete: () => {
-      // Ocultar estado de carga
-      loading = false;
-    }
-  });
-}
+    });
+  }
 
   async renderWalletBrick(preferenceId: string) {
     const mp = new MercadoPago(this.publicKey);
@@ -90,5 +90,21 @@ export class ServiciosRefrigeracionComponent {
         preferenceId: preferenceId
       }
     });
+  }
+
+
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__fadeInUp', 'opacity-100'); // Mostrar y animar
+          entry.target.classList.remove('opacity-0'); // Sacar invisible
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const elements: NodeListOf<Element> = document.querySelectorAll('.lazyCard');
+    elements.forEach((el) => observer.observe(el));
   }
 }
