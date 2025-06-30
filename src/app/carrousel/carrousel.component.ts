@@ -13,28 +13,30 @@ import 'swiper/css/bundle';
 export class CarrouselComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const swiper = new Swiper('.swiper', {
-  loop: true,
-  // slidesPerView: 'auto',
-  spaceBetween: 12,
-  breakpoints: {
-    0: {          // mobile
-      slidesPerView: 1.2,  // o 'auto' si querés scroll libre
-    },
-    640: {       // sm
-      slidesPerView: 2.2,
-    },
-    768: {       // md
-      slidesPerView: 3.2,
-    }},
-
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },
-  navigation: {
-    nextEl: '#nextSlide',
-    prevEl: '#prevSlide'
-  },
-});
+      spaceBetween: 12,
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1.2,
+        },
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 2.5,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      }
+    });
   }
 }
