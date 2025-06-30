@@ -1,10 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { ModalFormularioComponent } from '../modal-formulario/modal-formulario.component';
 
-declare var MercadoPago: any;
 
 @Component({
   selector: 'app-servicios-refrigeracion',
@@ -14,7 +12,6 @@ declare var MercadoPago: any;
 })
 export class ServiciosRefrigeracionComponent {
 
-  publicKey = environment.mercadoPagoPublicKey;
   constructor(private http: HttpClient) { }
 
   servicios = [
@@ -41,42 +38,7 @@ export class ServiciosRefrigeracionComponent {
     },
   ]
 
-  // comprar(servicioId: string) {
-  //   // Mostrar estado de carga
-  //   let loading = true;
 
-  //   this.http.post<{ id: string }>(
-  //     'https://repobackbc.onrender.com/crear-preferencia',
-  //     { servicio: servicioId }
-  //   ).subscribe({
-  //     next: (data) => {
-  //       if (data?.id) {
-  //         console.log('Preferencia creada:', data);
-  //         window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
-  //       } else {
-  //         console.error('Respuesta inesperada:', data);
-  //         alert('No se recibió un ID de preferencia válido');
-  //       }
-  //     },
-  //     error: (err) => {
-  //       console.error('Error completo:', err);
-  //       let errorMessage = 'Error al procesar el pago';
-
-  //       if (err.error?.error) {
-  //         errorMessage = err.error.error;
-  //         if (err.error.details) {
-  //           errorMessage += `: ${err.error.details}`;
-  //         }
-  //       }
-
-  //       alert(errorMessage);
-  //     },
-  //     complete: () => {
-  //       // Ocultar estado de carga
-  //       loading = false;
-  //     }
-  //   });
-  // }
 
   modalActivo = false;
   servicioSeleccionado = '';
@@ -94,22 +56,6 @@ export class ServiciosRefrigeracionComponent {
   }
 
 
-  // async renderWalletBrick(preferenceId: string) {
-  //   const mp = new MercadoPago(this.publicKey);
-  //   const bricksBuilder = mp.bricks();
-
-  //   // Eliminamos botón anterior si ya existía
-  //   const container = document.getElementById('walletBrick_container');
-  //   if (container) container.innerHTML = '';
-
-  //   await bricksBuilder.create("wallet", "walletBrick_container", {
-  //     initialization: {
-  //       preferenceId: preferenceId
-  //     }
-  //   });
-  // }
-
-
 
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver((entries) => {
@@ -119,7 +65,7 @@ export class ServiciosRefrigeracionComponent {
           entry.target.classList.remove('opacity-0'); // Sacar invisible
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     const elements: NodeListOf<Element> = document.querySelectorAll('.lazyCard');
     elements.forEach((el) => observer.observe(el));
