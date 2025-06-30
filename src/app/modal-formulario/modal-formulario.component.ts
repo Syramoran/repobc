@@ -38,8 +38,13 @@ Nombre: ${nombre}
 Dirección: ${direccion}
 Comentario: ${detalle || '-'}`;
 
-    const whatsappURL = `https://web.whatsapp.com/send?phone=5493434287234&text=${encodeURIComponent(msg)}`;
-    window.open(whatsappURL, '_blank');
+    const isMobile = /iPhone|Android|iPad|iPod/i.test(navigator.userAgent);
+const baseURL = isMobile
+  ? 'https://api.whatsapp.com/send'
+  : 'https://web.whatsapp.com/send';
+
+const whatsappURL = `${baseURL}?phone=5493434287234&text=${encodeURIComponent(msg)}`;
+window.open(whatsappURL, '_blank');
 
     this.enviado = true;
     setTimeout(() => this.cerrado.emit(), 4000);
