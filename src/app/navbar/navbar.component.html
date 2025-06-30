@@ -1,0 +1,58 @@
+<nav class="shadow-xl z-30 relative bg-white md:flex md:py-2 md:px-8 md:items-center md:justify-between">
+
+  <div class="flex justify-between px-5 lg:px-10 py-1 md:py-0 lg:py-1 items-center">
+    <a [routerLink]="'/'" class="no-underline border-none outline-none shadow-none">
+      <img src="/bajocero.png" class="h-14 lg:h-20" alt="Logo" />
+    </a>
+
+    <button
+      id="menu-btn"
+      class="md:hidden text-2xl p-4 text-sky-600 hover:cursor-pointer hover:text-gray-950"
+      (click)="activarHidden()"
+    >
+      ☰
+    </button>
+  </div>
+
+
+  <ul
+    id="menu"
+    class="hidden flex-col font-[montserrat] justify-center md:mt-0 md:flex md:flex-row"
+  >
+
+
+    <li class="p-4 flex justify-center cursor-pointer
+            bg-gray-100 
+            hover:bg-gray-200
+            md:bg-white 
+            md:hover:bg-white
+            transition-colors duration-300
+            text-gray-800
+            hover:text-blue-600
+            hover:font-medium">
+      <a [routerLink]="'/'" (click)="scrollTo('servicios')"  class=" lg:text-xl no-underline border-none outline-none shadow-none">Servicios</a>
+    </li>
+    <li class="p-4 flex justify-center cursor-pointer
+            bg-gray-100 
+            hover:bg-gray-200
+            md:bg-white 
+            md:hover:bg-white
+            transition-colors duration-300
+            text-gray-800
+            hover:text-blue-600
+            hover:font-medium">
+      <a [routerLink]="'/sobre-nosotros'" class="lg:text-xl no-underline border-none outline-none shadow-none">Sobre nosotros</a>
+    </li>
+    <li class="p-4 flex justify-center cursor-pointer
+            bg-gray-100 
+            hover:bg-gray-200
+            md:bg-white 
+            md:hover:bg-white
+            transition-colors duration-300
+            text-gray-800
+            hover:text-blue-600
+            hover:font-medium">
+      <a [routerLink]="'/'" (click)="scrollTo('contacto')" class="lg:text-xl no-underline border-none outline-none shadow-none">Contacto</a>
+    </li>
+  </ul>
+</nav>
