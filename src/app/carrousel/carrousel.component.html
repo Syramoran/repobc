@@ -1,0 +1,56 @@
+<div class="relative pb-5">
+    <!-- Controles personalizados fuera del carrusel -->
+    <button id="prevSlide"
+        class="absolute top-1/2 -translate-y-1/2 left-2 z-10 w-8 h-8 bg-sky-500/50 text-white rounded-full flex items-center justify-center shadow-md hover:bg-sky-600 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+
+    </button>
+    <button id="nextSlide"
+        class="absolute top-1/2 -translate-y-1/2 right-2 z-10 w-8 h-8 bg-sky-500/50 text-white rounded-full flex items-center justify-center shadow-md hover:bg-sky-600 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+
+    </button>
+
+    <!-- Swiper -->
+    <div class="swiper w-full">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <img src="/post1.png" class="w-full h-full object-cover" />
+                </div>
+            </div>
+            <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <video src="/video1.mp4" class="w-full h-full object-cover" preload="none" poster="/miniatura-video1.jpg" controls></video>
+                </div>
+            </div>
+            <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <img src="/post2.png" class="w-full h-full object-cover" />
+                </div>
+            </div>
+            <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <video src="/video2.mp4" class="w-full h-full object-cover" preload="none" poster="/miniatura-video2.jpg" controls></video>
+                </div>
+            </div>
+             <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <img src="/post3.png" class="w-full h-full object-cover" />
+                </div>
+            </div>
+            <div class="swiper-slide max-w-[300px]">
+                <div class="aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                    <video src="/video3.mp4" class="w-full h-full object-cover" preload="none" poster="/miniatura-video3.jpg" controls></video>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="swiper-pagination mt-4"></div>
+    </div>
+</div>

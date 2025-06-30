@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { CarrouselComponent } from '../carrousel/carrousel.component';
+
 
 @Component({
   selector: 'app-sobre-nosotros',
-  imports: [],
+  imports: [CarrouselComponent],
   templateUrl: './sobre-nosotros.component.html',
   styleUrl: './sobre-nosotros.component.css'
 })
@@ -20,5 +23,6 @@ export class SobreNosotrosComponent {
 
     const elements: NodeListOf<Element> = document.querySelectorAll('.lazyCard');
     elements.forEach((el) => observer.observe(el));
+
   }
 }
