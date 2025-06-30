@@ -9,24 +9,29 @@
         <i class="bi bi-geo-alt text-zinc-900 text-lg mr-2"></i>
         <span> Paraná - Santa Fe - Oro Verde - San Benito y alrededores</span>
       </div>
+      <div class="flex items-center gap-1 mb-4">
+        <i class="bi bi-phone text-zinc-900 text-lg mr-2"></i>
+        <a href="https://wa.me/message/6MST2VSJ2PPVP1" target="_blank" rel="noopener noreferrer">
+        <span> +54 9 3434 28-7234</span></a>
+      </div>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
 
         <div>
           <label for="nombre" class="block text-sm 2xl:text-xl text-zinc-900">Nombre</label>
-          <input type="text" id="nombre" formControlName="nombre" placeholder="Ingrese nombre y apellido " 
+          <input type="text" id="nombre" formControlName="nombre" placeholder="Ingrese nombre y apellido" maxlength="100" 
             class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder-zinc-400 placeholder:text-sm " />
         </div>
 
         <div>
           <label for="email" class="block text-sm 2xl:text-xl text-zinc-900">Email</label>
-          <input type="email" id="email" formControlName="email" placeholder="Ingrese su email"
+          <input type="email" id="email" formControlName="email" placeholder="Ingrese su email" maxlength="100"
             class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder-zinc-400 placeholder:text-sm " />
         </div>
 
         <div>
           <label for="mensaje" class="block text-sm 2xl:text-xl text-zinc-900">Mensaje</label>
-          <textarea id="mensaje" rows="5" formControlName="mensaje"
-            class="mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+          <textarea id="mensaje" rows="5" formControlName="mensaje" maxlength="300"
+            class="max-h-40 mt-1 w-full border border-zinc-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
         </div>
 
         <button type="submit" [disabled]="form.invalid"
@@ -38,8 +43,8 @@
     </div>
 
     <!-- Imagen / ilustración -->
-    <div class="w-full h-full rounded-lg flex items-center justify-center animate__animated lazyIlustration">
-      <img src="/ilustracion.png" class="h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96">
+    <div class="w-full h-full rounded-lg flex items-center justify-center overflow-hidden ">
+      <img src="/ilustracion.png" class="h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96  animate__animated lazyIlustration">
     </div>
 
   </div>

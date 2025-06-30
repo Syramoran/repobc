@@ -14,7 +14,7 @@ form: FormGroup;
     this.form = this.fb.group({
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      mensaje: ['', Validators.required],
+      mensaje: ['', Validators.required, Validators.maxLength(300)],
     });
   }
 
