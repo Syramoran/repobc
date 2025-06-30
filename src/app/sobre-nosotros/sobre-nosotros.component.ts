@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CarrouselComponent } from '../carrousel/carrousel.component';
+import Swiper from 'swiper/bundle';
+
+// import styles bundle
+import 'swiper/css/bundle';
 
 
 @Component({
