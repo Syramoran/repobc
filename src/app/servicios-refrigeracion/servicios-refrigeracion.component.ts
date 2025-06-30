@@ -2,12 +2,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ModalFormularioComponent } from '../modal-formulario/modal-formulario.component';
 
 declare var MercadoPago: any;
 
 @Component({
   selector: 'app-servicios-refrigeracion',
-  imports: [CommonModule],
+  imports: [CommonModule, ModalFormularioComponent],
   templateUrl: './servicios-refrigeracion.component.html',
   styleUrl: './servicios-refrigeracion.component.css'
 })
@@ -40,57 +41,73 @@ export class ServiciosRefrigeracionComponent {
     },
   ]
 
+  // comprar(servicioId: string) {
+  //   // Mostrar estado de carga
+  //   let loading = true;
+
+  //   this.http.post<{ id: string }>(
+  //     'https://repobackbc.onrender.com/crear-preferencia',
+  //     { servicio: servicioId }
+  //   ).subscribe({
+  //     next: (data) => {
+  //       if (data?.id) {
+  //         console.log('Preferencia creada:', data);
+  //         window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
+  //       } else {
+  //         console.error('Respuesta inesperada:', data);
+  //         alert('No se recibió un ID de preferencia válido');
+  //       }
+  //     },
+  //     error: (err) => {
+  //       console.error('Error completo:', err);
+  //       let errorMessage = 'Error al procesar el pago';
+
+  //       if (err.error?.error) {
+  //         errorMessage = err.error.error;
+  //         if (err.error.details) {
+  //           errorMessage += `: ${err.error.details}`;
+  //         }
+  //       }
+
+  //       alert(errorMessage);
+  //     },
+  //     complete: () => {
+  //       // Ocultar estado de carga
+  //       loading = false;
+  //     }
+  //   });
+  // }
+
+  modalActivo = false;
+  servicioSeleccionado = '';
+
   comprar(servicioId: string) {
-    // Mostrar estado de carga
-    let loading = true;
-
-    this.http.post<{ id: string }>(
-      'https://repobackbc.onrender.com/crear-preferencia',
-      { servicio: servicioId }
-    ).subscribe({
-      next: (data) => {
-        if (data?.id) {
-          console.log('Preferencia creada:', data);
-          window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${data.id}`;
-        } else {
-          console.error('Respuesta inesperada:', data);
-          alert('No se recibió un ID de preferencia válido');
-        }
-      },
-      error: (err) => {
-        console.error('Error completo:', err);
-        let errorMessage = 'Error al procesar el pago';
-
-        if (err.error?.error) {
-          errorMessage = err.error.error;
-          if (err.error.details) {
-            errorMessage += `: ${err.error.details}`;
-          }
-        }
-
-        alert(errorMessage);
-      },
-      complete: () => {
-        // Ocultar estado de carga
-        loading = false;
-      }
-    });
+    const servicio = this.servicios.find(s => s.id === servicioId);
+    if (servicio) {
+      this.servicioSeleccionado = servicio.nombre;
+      this.modalActivo = true;
+    }
   }
 
-  async renderWalletBrick(preferenceId: string) {
-    const mp = new MercadoPago(this.publicKey);
-    const bricksBuilder = mp.bricks();
-
-    // Eliminamos botón anterior si ya existía
-    const container = document.getElementById('walletBrick_container');
-    if (container) container.innerHTML = '';
-
-    await bricksBuilder.create("wallet", "walletBrick_container", {
-      initialization: {
-        preferenceId: preferenceId
-      }
-    });
+  cerrarModal() {
+    this.modalActivo = false;
   }
+
+
+  // async renderWalletBrick(preferenceId: string) {
+  //   const mp = new MercadoPago(this.publicKey);
+  //   const bricksBuilder = mp.bricks();
+
+  //   // Eliminamos botón anterior si ya existía
+  //   const container = document.getElementById('walletBrick_container');
+  //   if (container) container.innerHTML = '';
+
+  //   await bricksBuilder.create("wallet", "walletBrick_container", {
+  //     initialization: {
+  //       preferenceId: preferenceId
+  //     }
+  //   });
+  // }
 
 
 

@@ -27,4 +27,10 @@
     </div>
     }
   </div>
+  <app-modal-formulario
+  *ngIf="modalActivo"
+  [servicio]="servicioSeleccionado"
+  (cerrado)="cerrarModal()">
+</app-modal-formulario>
+
 </section>
