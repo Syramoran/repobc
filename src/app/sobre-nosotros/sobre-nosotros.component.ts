@@ -11,6 +11,20 @@ import 'swiper/css/bundle';
 export class SobreNosotrosComponent {
 ngAfterViewInit(): void {
 
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__fadeInUp', 'opacity-100');
+          entry.target.classList.remove('opacity-0');
+        } else {
+          // Cuando sale de la pantalla, quitar la animación y volver a invisible
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const elements: NodeListOf<Element> = document.querySelectorAll('.lazyCard');
+    elements.forEach((el) => observer.observe(el));
+
     const swiper = new Swiper('.swiper', {
       // Optional parameters
       direction: 'horizontal',

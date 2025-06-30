@@ -49,4 +49,20 @@ servicios = [
   cerrarModal() {
     this.modalActivo = false;
   }
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__fadeInUp', 'opacity-100');
+          entry.target.classList.remove('opacity-0');
+        } else {
+          // Cuando sale de la pantalla, quitar la animación y volver a invisible
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const elements: NodeListOf<Element> = document.querySelectorAll('.lazyCard');
+    elements.forEach((el) => observer.observe(el));
+  }
 }
