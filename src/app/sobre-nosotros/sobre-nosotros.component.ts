@@ -29,25 +29,39 @@ export class SobreNosotrosComponent {
     elements.forEach((el) => observer.observe(el));
 
     const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'vertical',
-  loop: true,
+      // Optional parameters
+      direction: 'horizontal',
+      spaceBetween: 12,
+      breakpoints: {
+        0: {
+          slidesPerView: 1.2,
+        },
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 2.5,
+        },
+        1024: {
+          slidesPerView: 3.5,
+        },
+      },
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-});
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
   }
 }

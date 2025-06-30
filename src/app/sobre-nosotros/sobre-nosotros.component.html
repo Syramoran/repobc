@@ -59,7 +59,7 @@
     <div class="flex flex-col md:flex-row gap-6 px-6 sm:px-12 md:px-16 lg:px-32 xl:px-40 2xl:px-64">
 
         <!-- Bloque de texto -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left justify-center gap-4">
+        <div class="w-full md:w-1/6 flex flex-col items-center md:items-start text-center md:text-left justify-center gap-4">
             <h3 class="text-2xl font-bold mb-4">¡Seguinos en las redes!</h3>
 
             <!-- Iconos: columna en mobile, fila desde md -->
@@ -83,30 +83,47 @@
         </div>
 
 
+        <div class="carrusel w-full md:w-5/6 h-full md:p-10">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden rounded-lg shadow-md">
+                            <img src="/post1.png" alt="Imagen 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden rounded-lg shadow-md">
+                            <img src="/post2.png" alt="Imagen 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden rounded-lg shadow-md">
+                            <img src="/post3.png" alt="Imagen 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden rounded-lg shadow-md">
+                            <img src="/post1.png" alt="Imagen 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden rounded-lg shadow-md">
+                            <img src="/post1.png" alt="Imagen 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
 
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"> - </div>
+                <div class="swiper-button-next"> > </div>
 
-        <!-- Carrusel -->
-    </div>
-    <!-- <app-carrousel></app-carrousel> -->
-
-    <div class="carrusel w-80 h-96">
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
         </div>
     </div>
 </section>
