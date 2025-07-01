@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -8,22 +9,33 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent {
-form: FormGroup;
+  form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      mensaje: ['', Validators.required, Validators.maxLength(300)],
+      mensaje: ['', [Validators.required, Validators.maxLength(300)]],
     });
+
   }
 
   onSubmit() {
+    console.log('hola')
     if (this.form.valid) {
       const data = this.form.value;
-      console.log('Formulario enviado:', data);
-      // Podés conectar con backend o servicio de email acá
-      this.form.reset();
+
+      this.http.post('https://repobackbc-production.up.railway.app/api/mail/send', data).subscribe({
+        next: (res) => {
+          console.log('Enviado:', res);
+          this.form.reset();
+          alert('Consulta enviada correctamente ✅');
+        },
+        error: (err) => {
+          console.error('Error al enviar:', err);
+          alert('Hubo un error al enviar el mensaje ❌');
+        },
+      });
     }
   }
 
