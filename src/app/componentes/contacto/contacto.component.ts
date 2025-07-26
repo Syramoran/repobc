@@ -25,7 +25,7 @@ export class ContactoComponent {
     if (this.form.valid) {
       const data = this.form.value;
 
-      this.http.post('https://repobackbc-production.up.railway.app/api/mail/send', data).subscribe({
+      this.http.post('https://repobackbc.onrender.com/api/mail/send', data).subscribe({
         next: (res) => {
           console.log('Enviado:', res);
           this.form.reset();
